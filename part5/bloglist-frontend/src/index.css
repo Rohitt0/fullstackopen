@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blog-summary {
+  font-weight: 600;
+}
+
+.blog-url {
+  word-break: break-all;
+}
+
+.blog-link {
+  text-decoration: none;
+}
+
+.blog-link:hover {
+  text-decoration: underline;
+}
