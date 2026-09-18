@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.error-page {
+  padding: 32px;
+  text-align: center;
+}
