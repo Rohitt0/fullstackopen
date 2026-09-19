@@ -26,7 +26,7 @@ const createNew = async object => {
   return await response.json()
 }
 
-const deleteAnecdote = async id => {
+const remove = async id => {
   const response = await fetch(`${baseUrl}/${id}`, {
     method: 'DELETE'
   })
@@ -39,5 +39,5 @@ const deleteAnecdote = async id => {
 export default {
   getAll,
   createNew,
-  deleteAnecdote
+  remove
 }

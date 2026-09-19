@@ -4,9 +4,9 @@ const AnecdoteList = () => {
   const { anecdotes, deleteAnecdote } = useAnecdotes()
 
   return (
-    <div>
+    <ul>
       {anecdotes.map(anecdote => (
-        <div key={anecdote.id}>
+        <li key={anecdote.id}>
           <div>{anecdote.content}</div>
 
           <div>
@@ -14,13 +14,15 @@ const AnecdoteList = () => {
 
             <button>vote</button>
 
-            <button onClick={() => deleteAnecdote(anecdote.id)}>
+            <button
+              onClick={() => deleteAnecdote(anecdote.id)}
+            >
               delete
             </button>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

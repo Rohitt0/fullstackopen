@@ -5,25 +5,31 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   reporter: 'html',
+
   use: {
     baseURL: 'http://localhost:5173',
-    trace: 'on-first-retry',
+    trace: 'on-first-retry'
   },
+
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
+    }
   ],
+
   webServer: [
     {
-      command: 'npm run server:test',
+      command: 'npm run server',
       cwd: '../routed-anecdotes',
-      url: 'http://localhost:3002/anecdotes',
-      reuseExistingServer: !process.env.CI,
+      url: 'http://localhost:3001/anecdotes',
+      reuseExistingServer: !process.env.CI
     },
     {
-      command: 'npm run start:test',
+      command: 'npm run dev',
       cwd: '../routed-anecdotes',
       url: 'http://localhost:5173',
-      reuseExistingServer: !process.env.CI,
-    },
-  ],
+      reuseExistingServer: !process.env.CI
+    }
+  ]
 })
