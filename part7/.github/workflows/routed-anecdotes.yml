@@ -3,11 +3,12 @@ name: routed anecdotes tests
 on:
   push:
     branches:
-      - xmain
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -16,19 +17,19 @@ jobs:
           node-version: 24
 
       - name: Install app dependencies
-        working-directory: routed-anecdotes
+        working-directory: part7/routed-anecdotes
         run: npm ci
 
       - name: Install test dependencies
-        working-directory: routed-anecdotes-tests
+        working-directory: part7/routed-anecdotes-tests
         run: npm ci
 
       - name: Install Playwright browsers
-        working-directory: routed-anecdotes-tests
+        working-directory: part7/routed-anecdotes-tests
         run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests
-        working-directory: routed-anecdotes-tests
+        working-directory: part7/routed-anecdotes-tests
         run: npx playwright test
 
       - name: Upload Playwright report
@@ -36,5 +37,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: routed-anecdotes-tests/playwright-report/
+          path: part7/routed-anecdotes-tests/playwright-report/
           retention-days: 14
